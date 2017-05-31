@@ -21,13 +21,36 @@
         android:layout_gravity="center"
         android:text="in se world" />
 
-    <Button
-        android:id="@+id/play"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:layout_marginTop="20dp"
-        android:text="play" />
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/woff"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1" />
+
+        <Button
+            android:id="@+id/play"
+            android:layout_width="10dp"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1"
+            android:text="play" />
+
+        <ImageView
+            android:id="@+id/woff1"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:layout_gravity="center"
+            android:layout_marginTop="20dp"
+            android:layout_weight="1" />
+
+    </LinearLayout>
 
     <Button
         android:id="@+id/pause"
@@ -44,11 +67,12 @@
         android:layout_marginTop="50dp"
         android:text="woof" />
 
-    <ImageView
-        android:id="@+id/woff"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+
+    <VideoView
+        android:id="@+id/video"
+        android:layout_width="300dp"
+        android:layout_height="200dp"
         android:layout_gravity="center"
-        android:layout_marginTop="20dp" />
+        android:layout_marginTop="50dp" />
 
 </LinearLayout>
