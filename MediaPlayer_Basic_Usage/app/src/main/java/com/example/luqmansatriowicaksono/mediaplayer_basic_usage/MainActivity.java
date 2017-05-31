@@ -42,11 +42,13 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
+
+
         pausewoof = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 wooof.pause();
-                setTheOtherListener(2);
+                woof.setOnClickListener(wooflistener);
             }
         };
 
@@ -60,7 +62,7 @@ public class MainActivity extends AppCompatActivity {
                 woff.setImageResource(R.drawable.wuff);
                 woff.setVisibility(View.VISIBLE);
                 wooof.start();
-                setTheOtherListener(1);
+                woof.setOnClickListener(pausewoof);
 
 
             }
@@ -70,14 +72,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    private void setTheOtherListener(int i) {
-        if (i == 1) {
-            woof.setOnClickListener(pausewoof);
-        } else {
-            woof.setOnClickListener(wooflistener);
-        }
-
-    }
+    
 
 
 }
