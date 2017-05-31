@@ -11,6 +11,9 @@ public class MainActivity extends AppCompatActivity {
 
     MediaPlayer player;
     MediaPlayer wooof;
+    TextView woof;
+    View.OnClickListener pausewoof;
+    View.OnClickListener wooflistener;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -19,9 +22,11 @@ public class MainActivity extends AppCompatActivity {
 
         TextView play = (TextView) findViewById(R.id.play);
         TextView pause = (TextView) findViewById(R.id.pause);
-        TextView woof = (TextView) findViewById(R.id.woof);
+        woof = (TextView) findViewById(R.id.woof);
 
         player = MediaPlayer.create(this, R.raw.shootingstar);
+
+        wooof = MediaPlayer.create(this, R.raw.woooof);
 
         play.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -37,10 +42,16 @@ public class MainActivity extends AppCompatActivity {
             }
         });
 
-        wooof = MediaPlayer.create(this, R.raw.woooof);
+        pausewoof = new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                wooof.pause();
+                setTheOtherListener(2);
+            }
+        };
 
 
-        woof.setOnClickListener(new View.OnClickListener() {
+        wooflistener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
@@ -49,10 +60,24 @@ public class MainActivity extends AppCompatActivity {
                 woff.setImageResource(R.drawable.wuff);
                 woff.setVisibility(View.VISIBLE);
                 wooof.start();
+                setTheOtherListener(1);
+
 
             }
-        });
+        };
 
+        woof.setOnClickListener(wooflistener);
 
     }
+
+    private void setTheOtherListener(int i) {
+        if (i == 1) {
+            woof.setOnClickListener(pausewoof);
+        } else {
+            woof.setOnClickListener(wooflistener);
+        }
+
+    }
+
+
 }
